@@ -1,0 +1,23 @@
+[paket]
+tanim   = QT tabanlı ses oynatıcısı
+paketci = rise
+grup    = medya
+url     = http://qmmp.ylsoftware.com/
+
+[gerek]
+derleme = cmake qt5-tools
+calisma = alsa-lib
+
+[kaynak]
+bz2      = http://qmmp.ylsoftware.com/files
+
+[sha256]
+1       = 144ebed8f2482a1adb894ae201e23f431d65b01dbb65c1567276c4e34673f694
+
+[derle]
+betik   = cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DUSE_HAL:BOOL=FALSE
+betik   = make
+
+
+[pakur]
+betik   = make DESTDIR="${PKG}" install
